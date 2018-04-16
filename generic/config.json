@@ -1,6 +1,6 @@
 {
     "domain": "https://example.com",
-    "url_regex": ".*",
+    "path_regex": ".*",
     "keyword_regex": "(.*?@gmail.com)",
     "use_proxy": false,
     "login": "username:password",

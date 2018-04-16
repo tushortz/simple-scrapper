@@ -4,7 +4,7 @@ scrapper codes written in python3. It searches most of the domain path for a mat
 
 just run the code in the generic folder.
 
-alter the options in the `config.json file`
+alter the options in the `config.json` file
 
 options are:
 
@@ -29,7 +29,7 @@ options are:
     "method": "GET",
     "output_filename": "result.txt"
 }
-
+```
 
 > The program may fail after a while due to `maximum recursion depth exceeded` error. If this is the case, just rerun the code and the program will resume execution without overriding the previous  `output_filename` content.
 

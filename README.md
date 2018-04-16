@@ -1,10 +1,7 @@
 # simple scrapper
-scrapper codes written in python3. It searches most of the domain path for a match and outputs the result in a file.
+scrapper code written in python3. It searches most of the domain path for a match and outputs the result in a file.
 
-
-just run the code in the generic folder.
-
-alter the options in the `config.json` file
+> just run the code in the generic folder. Alter the options in the `config.json` file as desired.
 
 options are:
 
@@ -13,7 +10,6 @@ options are:
 * keyword_regex -> if match is found in page content, the match will be written to the `output_filename`. Don't forget the `(` and `)` so it can actually match exact regex
 * use_proxy -> boolean to determine if program needs to use generated proxy
 * login -> login credentials of `username`  and  `password`   separates by a colon
-* method -> request method to use. default is `GET`
 * output_filename -> name of the file where match results should be stored.
 
 

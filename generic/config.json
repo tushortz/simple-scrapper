@@ -1,5 +1,5 @@
 {
-    "url": "https://example.com",
+    "domain": "https://example.com",
     "url_regex": ".*",
     "keyword_regex": "(.*?@gmail.com)",
     "use_proxy": false,

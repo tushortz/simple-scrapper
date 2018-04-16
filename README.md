@@ -18,6 +18,8 @@ options are:
 
 
 ## Sample config.json
+
+```json
 {
     "domain": "https://example.com",
     "url_regex": ".*",
@@ -28,8 +30,13 @@ options are:
     "output_filename": "result.txt"
 }
 
+
 > The program may fail after a while due to `maximum recursion depth exceeded` error. If this is the case, just rerun the code and the program will resume execution without overriding the previous  `output_filename` content.
 
 ## To be implemented
+
 [] use proxy
 [] login
+
+## contributing
+To contribute, simply fork this repository and create a pull request

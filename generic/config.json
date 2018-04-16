@@ -4,6 +4,5 @@
     "keyword_regex": "(.*?@gmail.com)",
     "use_proxy": false,
     "login": "username:password",
-    "method": "GET",
     "output_filename": "result.txt"
 }

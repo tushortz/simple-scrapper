@@ -33,7 +33,6 @@ options are:
 
 [] use proxy
 
-[] login
 
 ## contributing
 To contribute, simply fork this repository and create a pull request

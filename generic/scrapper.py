@@ -29,8 +29,22 @@ else:
 
 URL = config.get("domain")
 filename = config.get("output_filename")
-URL_REGEX = config.get("url_regex")
+URL_REGEX = config.get("path_regex")
 KEYWORD_REGEX = config.get("keyword_regex")
+
+AUTH = config.get("login")
+s = requests.Session()
+	
+
+s.headers.update({
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:27.0) Gecko/20100101 Firefox/27.0',
+})
+
+
+if AUTH and AUTH != "username:password":
+	AUTH = tuple(AUTH.split(":"))
+	s.auth = AUTH
+	s.post(URL, auth=AUTH)
 
 
 opened=[]
@@ -39,13 +53,14 @@ hits=0
 mode="w"
 MATCHES = []
 
+
 if os.path.isfile(filename):
 	with open(filename) as f:
 		visited = f.read().split("\n")
 		mode = "a"
 
 with open(filename, mode) as f:
-	def process(url, visited=visited, hits=hits):
+	def process(url, visited=visited, hits=hits, s=s):
 		LINKS = []
 
 		page_crawled = False
@@ -56,7 +71,7 @@ with open(filename, mode) as f:
 		if page_crawled == False:
 			opened.append(url)
 
-			text = requests.get(url).text
+			text = s.get(url).text
 			
 			for link in re.findall(r'href="(.*?)"', text):
 				link = urljoin(url, link).split("#")[0]#.split("?")[0]
@@ -68,7 +83,7 @@ with open(filename, mode) as f:
 					if link not in visited:
 						if re.search(URL_REGEX, link, re.I):
 
-							source = requests.get(link).text
+							source = s.get(link).text
 							# ([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)
 							matches = set(re.findall(r"{0}".format(KEYWORD_REGEX), source, re.I))
 
@@ -99,7 +114,8 @@ with open(filename, mode) as f:
 						time.sleep(3)
 						print("\n--", e)
 
-	# try:
-	process(URL, hits=hits)
-	# except Exception as e:
-		# print(e)
+	try:
+		process(URL, hits=hits)
+	except Exception as e:
+		print(e)
+		time.sleep(3)

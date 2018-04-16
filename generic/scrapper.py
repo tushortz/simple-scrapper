@@ -7,12 +7,7 @@ import re
 import time
 import os
 import json
-
-
-try:
-    from urlparse import urljoin  # Python2
-except ImportError:
-    from urllib.parse import urljoin  # Python3
+from urllib.parse import urljoin  # Python3
 
 if len(sys.argv) != 2:
 	sys.exit('Usage: python %s "<config_filename>"' % __file__)
@@ -32,7 +27,7 @@ else:
 	sys.exit("Config file: '%s' not found" % config_file)
 
 
-URL = config.get("url")
+URL = config.get("domain")
 filename = config.get("output_filename")
 URL_REGEX = config.get("url_regex")
 KEYWORD_REGEX = config.get("keyword_regex")

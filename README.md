@@ -6,8 +6,8 @@ scrapper code written in python3. It searches most of the domain path for a matc
 options are:
 
 * domain -> website url for code to search for data
-* url_regex -> the path to search in. Program skips looking for data in url if the path after the `domain` name cannot be found
-* keyword_regex -> if match is found in page content, the match will be written to the `output_filename`. Don't forget the `(` and `)` so it can actually match exact regex
+* path_regex -> the path to search in. Program skips looking for data in url if the path after the `domain` name cannot be found
+* keyword_regex -> if match is found in page content, the match will be written to the `output_filename`. Don't add the `(` and `)` so it can actually match exact regex
 * use_proxy -> boolean to determine if program needs to use generated proxy
 * login -> login credentials of `username`  and  `password`   separates by a colon
 * output_filename -> name of the file where match results should be stored.
@@ -17,12 +17,11 @@ options are:
 
 ```json
 {
-    "domain": "https://example.com",
-    "url_regex": ".*",
-    "keyword_regex": "(.*?@gmail.com)",
+    "domain": "https://www.example.com",
+    "path_regex": ".*",
+    "keyword_regex": ".*?@gmail.com",
     "use_proxy": false,
     "login": "username:password",
-    "method": "GET",
     "output_filename": "result.txt"
 }
 ```
